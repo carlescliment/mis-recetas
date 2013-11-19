@@ -1,0 +1,7 @@
+my_recipes_create:
+    pattern:  /recipes/create
+    defaults: { _controller: MyRecipesBundle:Default:create }
+
+my_recipes_show:
+    pattern:  /recipes/{id}
+    defaults: { _controller: MyRecipesBundle:Default:show }
