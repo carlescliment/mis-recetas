@@ -20,6 +20,7 @@ class DefaultController extends Controller
         return array('recipe' => $recipe);
     }
 
+
     public function createAction()
     {
         $author = new Author('Karlos', 'Arguiñano');
@@ -32,10 +33,22 @@ class DefaultController extends Controller
         return $this->redirect($this->generateUrl('my_recipes_show', array('id' => $recipe->getId())));
     }
 
+
+    /**
+     * @Template()
+     */
+    public function topChefsAction()
+    {
+        $repository = $this->getDoctrine()->getRepository('MyRecipesBundle:Author');
+        $chefs = $repository->findTopChefs();
+        return array('chefs' => $chefs);
+    }
+
     private function persistAndFlush(Recipe $recipe)
     {
         $em = $this->getDoctrine()->getEntityManager();
         $em->persist($recipe);
         $em->flush();
     }
+
 }

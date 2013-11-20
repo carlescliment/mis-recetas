@@ -1,6 +1,12 @@
 My\RecipesBundle\Entity\Author:
     type: entity
+    repositoryClass: My\RecipesBundle\Repository\AuthorRepository
     table: authors
+    oneToMany:
+        recipes:
+          targetEntity: Recipe
+          mappedBy: author
+          fetch: EXTRA_LAZY
     id:
         id:
             type: integer

@@ -5,3 +5,7 @@ my_recipes_create:
 my_recipes_show:
     pattern:  /recipes/{id}
     defaults: { _controller: MyRecipesBundle:Default:show }
+
+my_recipes_show:
+    pattern:  /top-chefs
+    defaults: { _controller: MyRecipesBundle:Default:topChefs }

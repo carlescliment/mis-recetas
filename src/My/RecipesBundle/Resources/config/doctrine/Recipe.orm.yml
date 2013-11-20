@@ -4,11 +4,13 @@ My\RecipesBundle\Entity\Recipe:
     manyToOne:
         author:
             targetEntity: Author
+            inversedBy: recipes
             joinColumn:
                 name: author_id
                 referencedColumnName: id
                 onDelete: "CASCADE"
             cascade: ["persist"]
+            fetch: EXTRA_LAZY
     manyToMany:
         ingredients:
             targetEntity: Ingredient
@@ -21,7 +23,7 @@ My\RecipesBundle\Entity\Recipe:
                     ingredient_id:
                         referencedColumnName: id
             cascade: ["persist"]
-
+            fetch: EXTRA_LAZY
     id:
         id:
             type: integer
@@ -30,7 +32,7 @@ My\RecipesBundle\Entity\Recipe:
         name:
             type: string
             length: 255
-        name:
+        difficulty:
             type: string
             length: 40
         description:
