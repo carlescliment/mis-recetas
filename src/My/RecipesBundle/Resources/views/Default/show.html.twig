@@ -1,13 +1,19 @@
-<h1>{{ recipe.name }}</h1>
-<h2>Por {{ recipe.author }}</h2>
+{% extends '::base.html.twig' %}
 
-<p>{{ recipe.description }}</p>
+{% block title %}{{ recipe.name }}{% endblock %}
 
-<h3>Ingredientes</h3>
-<ul>
-    {% for ingredient in recipe.ingredients %}
-        <li>
-            {{ ingredient }}
-        </li>
-    {% endfor %}
-</ul>
+{% block body %}
+    <h1>{{ recipe.name }}</h1>
+    <h2>Por {{ recipe.author }}</h2>
+
+    <p>{{ recipe.description }}</p>
+
+    <h3>Ingredientes</h3>
+    <ul>
+        {% for ingredient in recipe.ingredients %}
+            <li>
+                {{ ingredient }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
