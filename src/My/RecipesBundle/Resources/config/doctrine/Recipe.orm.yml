@@ -1,5 +1,6 @@
 My\RecipesBundle\Entity\Recipe:
     type: entity
+    repositoryClass: My\RecipesBundle\Repository\RecipeRepository
     table: recipes
     manyToOne:
         author:
@@ -37,3 +38,5 @@ My\RecipesBundle\Entity\Recipe:
             length: 40
         description:
             type: text
+        published:
+            type: datetime

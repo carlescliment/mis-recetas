@@ -3,6 +3,15 @@
     {% include '::header.html.twig' %}
     <body>
         {% block body %}{% endblock %}
+
+        <h3>Últimas recetas</h3>
+        <ul>
+            {% for recipe in last_recipes %}
+                <li>{{ recipe.name }}</li>
+            {% endfor %}
+        </ul>
+
         {% block javascripts %}{% endblock %}
+
     </body>
 </html>

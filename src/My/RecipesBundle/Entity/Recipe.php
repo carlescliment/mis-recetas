@@ -18,6 +18,8 @@ class Recipe
 
     protected $ingredients;
 
+    protected $published;
+
     public function __construct(Author $author, $name, $description, $difficulty)
     {
         $this->author = $author;
@@ -25,12 +27,13 @@ class Recipe
         $this->description = $description;
         $this->difficulty = $difficulty;
         $this->ingredients = new ArrayCollection();
+        $this->published = new \DateTime;
     }
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -46,14 +49,14 @@ class Recipe
     public function setName($name)
     {
         $this->name = $name;
-    
+
         return $this;
     }
 
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -69,14 +72,14 @@ class Recipe
     public function setDescription($description)
     {
         $this->description = $description;
-    
+
         return $this;
     }
 
     /**
      * Get description
      *
-     * @return string 
+     * @return string
      */
     public function getDescription()
     {
