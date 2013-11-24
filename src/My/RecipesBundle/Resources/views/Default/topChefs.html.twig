@@ -2,6 +2,6 @@
 
 <ul>
     {% for chef in chefs %}
-        <li>{{ chef }}</li>
+        <li class="{% if loop.index0 is odd %}odd{% else %}even{% endif %}"">{{ chef }}</li>
     {% endfor %}
 </ul>

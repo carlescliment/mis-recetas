@@ -17,9 +17,7 @@ class DefaultController extends Controller
      */
     public function showAction(Recipe $recipe)
     {
-        return array(
-            'last_recipes' => $this->getLastRecipes(),
-            'recipe' => $recipe);
+        return array('recipe' => $recipe);
     }
 
 
@@ -43,9 +41,18 @@ class DefaultController extends Controller
     {
         $repository = $this->getDoctrine()->getRepository('MyRecipesBundle:Author');
         $chefs = $repository->findTopChefs();
-        return array(
-            'last_recipes' => $this->getLastRecipes(),
-            'chefs' => $chefs);
+        return array('chefs' => $chefs);
+    }
+
+    /**
+     * @Template()
+     */
+    public function lastRecipesAction()
+    {
+        $date = new \DateTime('-10 days');
+        $repository = $this->getDoctrine()->getRepository('MyRecipesBundle:Recipe');
+        $recipes = $repository->findPublishedAfter($date);;
+        return array('recipes' => $recipes);
     }
 
     private function persistAndFlush(Recipe $recipe)
@@ -53,14 +60,6 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getEntityManager();
         $em->persist($recipe);
         $em->flush();
-    }
-
-
-    private function getLastRecipes()
-    {
-        $date = new \DateTime('-10 days');
-        $repository = $this->getDoctrine()->getRepository('MyRecipesBundle:Recipe');
-        return $repository->findPublishedAfter($date);
     }
 
 }
