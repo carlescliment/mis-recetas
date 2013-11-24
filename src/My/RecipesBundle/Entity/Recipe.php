@@ -3,6 +3,7 @@
 namespace My\RecipesBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use My\RecipesBundle\Model\Difficulties;
 
 class Recipe
 {
@@ -20,7 +21,7 @@ class Recipe
 
     protected $published;
 
-    public function __construct(Author $author, $name, $description, $difficulty)
+    public function __construct(Author $author, $name, $description, $difficulty = Difficulties::UNKNOWN)
     {
         $this->author = $author;
         $this->name = $name;
@@ -100,5 +101,20 @@ class Recipe
     {
         $this->ingredients[] = $ingredient;
         return $this;
+    }
+
+    public function isEasy()
+    {
+        return $this->difficulty === Difficulties::EASY;
+    }
+
+    public function isNormal()
+    {
+        return $this->difficulty === Difficulties::NORMAL;
+    }
+
+    public function isHard()
+    {
+        return $this->difficulty === Difficulties::HARD;
     }
 }

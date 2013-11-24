@@ -25,7 +25,7 @@ class DefaultController extends Controller
     {
         $author = new Author('Karlos', 'Arguiñano');
         $ingredient = new Ingredient('Pollo');
-        $recipe = new Recipe($author, 'Pollo al pil-pil', 'Deliciosa y económica receta.', 'fácil');
+        $recipe = new Recipe($author, 'Pollo al pil-pil', 'Deliciosa y económica receta.');
         $recipe->add($ingredient);
 
         $this->persistAndFlush($recipe);

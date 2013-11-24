@@ -5,8 +5,9 @@
 {% block body %}
     <h1>{{ recipe.name }}</h1>
     <h2>Por {{ recipe.author }}</h2>
-
-    <p>{{ recipe.description }}</p>
+    <p class="recipe {{ recipe|cssClass }}">
+        {{ recipe.description }}
+    </p>
 
     <h3>Ingredientes</h3>
     <ul>
