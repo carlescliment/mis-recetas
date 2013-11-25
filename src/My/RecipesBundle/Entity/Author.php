@@ -35,7 +35,7 @@ class Author
     /**
      * Get id
      *
-     * @return integer
+     * @return integer 
      */
     public function getId()
     {
@@ -51,14 +51,14 @@ class Author
     public function setName($name)
     {
         $this->name = $name;
-
+    
         return $this;
     }
 
     /**
      * Get name
      *
-     * @return string
+     * @return string 
      */
     public function getName()
     {
@@ -74,14 +74,14 @@ class Author
     public function setSurname($surname)
     {
         $this->surname = $surname;
-
+    
         return $this;
     }
 
     /**
      * Get surname
      *
-     * @return string
+     * @return string 
      */
     public function getSurname()
     {
@@ -97,7 +97,7 @@ class Author
     public function addRecipe(\My\RecipesBundle\Entity\Recipe $recipes)
     {
         $this->recipes[] = $recipes;
-
+    
         return $this;
     }
 
