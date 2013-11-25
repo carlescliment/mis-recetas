@@ -10,6 +10,10 @@ my_recipes_author_create:
     pattern:  /authors/create
     defaults: { _controller: MyRecipesBundle:Author:create }
 
+my_recipes_author_show:
+    pattern:  /authors/{id}
+    defaults: { _controller: MyRecipesBundle:Author:show }
+
 top_chefs:
     pattern:  /top-chefs
     defaults: { _controller: MyRecipesBundle:Default:topChefs }
