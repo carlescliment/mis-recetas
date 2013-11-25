@@ -6,6 +6,10 @@ my_recipes_show:
     pattern:  /recipes/{id}
     defaults: { _controller: MyRecipesBundle:Default:show }
 
+my_recipes_author_create:
+    pattern:  /authors/create
+    defaults: { _controller: MyRecipesBundle:Author:create }
+
 top_chefs:
     pattern:  /top-chefs
     defaults: { _controller: MyRecipesBundle:Default:topChefs }
