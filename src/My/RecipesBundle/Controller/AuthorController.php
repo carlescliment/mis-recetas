@@ -5,7 +5,7 @@ namespace My\RecipesBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
-
+use My\RecipesBundle\Form\Type\AuthorType;
 
 use My\RecipesBundle\Entity\Author;
 
@@ -18,11 +18,7 @@ class AuthorController extends Controller
     public function createAction(Request $request)
     {
         $author = new Author;
-        $form = $this->createFormBuilder($author)
-            ->add('name', 'text')
-            ->add('surname', 'text')
-            ->add('save', 'submit')
-            ->getForm();
+        $form = $this->createForm(new AuthorType, $author);
         $form->handleRequest($request);
 
         if ($form->isValid()) {

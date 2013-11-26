@@ -6,13 +6,14 @@ namespace My\RecipesBundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class RecipeType extends AbstractType
+class AuthorType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', 'string')
-            ->add('surname', 'string')
+            ->setMethod('PUT')
+            ->add('name', 'text')
+            ->add('surname', 'text')
             ->add('save', 'submit');
     }
 
