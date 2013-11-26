@@ -1,4 +1,5 @@
 <?php
+// src/My/RecipesBundle/Entity/Author.php
 
 namespace My\RecipesBundle\Entity;
 
@@ -109,5 +110,10 @@ class Author
     public function removeRecipe(\My\RecipesBundle\Entity\Recipe $recipes)
     {
         $this->recipes->removeElement($recipes);
+    }
+
+    public function isValid()
+    {
+        return $this->__toString() != 'Karlos Arguiñano';
     }
 }

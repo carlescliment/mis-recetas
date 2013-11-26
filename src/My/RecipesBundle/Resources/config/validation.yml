@@ -1,5 +1,8 @@
 # src/My/RecipesBundle/Resources/config/validation.yml
 My\RecipesBundle\Entity\Author:
+    getters:
+        valid:
+            - "True": { message: "No aceptamos recetas del autor" }
     properties:
         name:
             - NotBlank: ~
