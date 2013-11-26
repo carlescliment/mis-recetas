@@ -6,3 +6,8 @@ services:
         class: My\RecipesBundle\Twig\RecipesExtension
         tags:
             - { name: twig.extension }
+
+    my_recipes.form.type.difficulty:
+        class: My\RecipesBundle\Form\Type\DifficultyType
+        tags:
+            - { name: form.type, alias: difficulty }

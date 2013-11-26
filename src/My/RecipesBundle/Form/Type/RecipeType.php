@@ -1,12 +1,11 @@
 <?php
 
-// src/My/RecipesBundle/Form/Type/AuthorType.php
+// src/My/RecipesBundle/Form/Type/RecipeType.php
 namespace My\RecipesBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-use My\RecipesBundle\Model\Difficulties;
 
 class RecipeType extends AbstractType
 {
@@ -14,8 +13,7 @@ class RecipeType extends AbstractType
     {
         $builder
             ->add('name', 'text')
-            ->add('difficulty', 'choice', array('choices' => Difficulties::toArray(),
-                ))
+            ->add('difficulty', 'difficulty')
             ->add('save', 'submit');
     }
 
