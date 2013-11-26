@@ -1,0 +1,7 @@
+# src/My/RecipesBundle/Resources/config/validation.yml
+My\RecipesBundle\Entity\Author:
+    properties:
+        name:
+            - NotBlank: ~
+        surname:
+            - NotBlank: ~
