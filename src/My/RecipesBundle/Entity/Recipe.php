@@ -21,7 +21,7 @@ class Recipe
 
     protected $published;
 
-    public function __construct(Author $author, $name, $description, $difficulty = Difficulties::UNKNOWN)
+    public function __construct(Author $author = null, $name = '', $description = '', $difficulty = Difficulties::UNKNOWN)
     {
         $this->author = $author;
         $this->name = $name;
@@ -100,6 +100,17 @@ class Recipe
     public function add(Ingredient $ingredient)
     {
         $this->ingredients[] = $ingredient;
+        return $this;
+    }
+
+    public function getDifficulty()
+    {
+        return $this->difficulty;
+    }
+
+    public function setDifficulty($difficulty)
+    {
+        $this->difficulty = $difficulty;
         return $this;
     }
 

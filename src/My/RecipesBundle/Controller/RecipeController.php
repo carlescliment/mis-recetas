@@ -4,12 +4,15 @@ namespace My\RecipesBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\HttpFoundation\Request;
 
 use My\RecipesBundle\Entity\Author,
     My\RecipesBundle\Entity\Ingredient,
     My\RecipesBundle\Entity\Recipe;
 
-class DefaultController extends Controller
+use My\RecipesBundle\Form\Type\RecipeType;
+
+class RecipeController extends Controller
 {
 
     /**
@@ -20,17 +23,20 @@ class DefaultController extends Controller
         return array('recipe' => $recipe);
     }
 
-
-    public function createAction()
+    /**
+     * @Template()
+     */
+    public function createAction(Request $request)
     {
-        $author = new Author('Karlos', 'Arguiñano');
-        $ingredient = new Ingredient('Pollo');
-        $recipe = new Recipe($author, 'Pollo al pil-pil', 'Deliciosa y económica receta.');
-        $recipe->add($ingredient);
+        $recipe = new Recipe();
+        $form = $this->createForm(new RecipeType, $recipe);
+        $form->handleRequest($request);
 
-        $this->persistAndFlush($recipe);
-
-        return $this->redirect($this->generateUrl('my_recipes_show', array('id' => $recipe->getId())));
+        if ($form->isValid()) {
+            $this->persistAndFlush($recipe);
+            return $this->redirect($this->generateUrl('my_recipes_recipe_show', array('id' => $recipe->getId())));
+        }
+        return array('form' => $form->createView());
     }
 
 
