@@ -14,8 +14,7 @@ class AuthorType extends AbstractType
     {
         $builder
             ->add('name', 'text')
-            ->add('surname', 'text', array('required' => false))
-            ->add('save', 'submit');
+            ->add('surname', 'text', array('required' => false));
     }
 
     public function getName()
@@ -26,6 +25,7 @@ class AuthorType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
+            'data_class' => 'My\RecipesBundle\Entity\Author',
             'csrf_protection' => true,
             'csrf_field_name' => '_token',
             // a unique key to help generate the secret token

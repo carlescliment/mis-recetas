@@ -1,4 +1,5 @@
 <?php
+// src/My/RecipesBundle/Entity/Recipe.php
 
 namespace My\RecipesBundle\Entity;
 
@@ -90,6 +91,12 @@ class Recipe
     public function getAuthor()
     {
         return $this->author;
+    }
+
+    public function setAuthor(Author $author)
+    {
+        $this->author = $author;
+        return $this;
     }
 
     public function getIngredients()

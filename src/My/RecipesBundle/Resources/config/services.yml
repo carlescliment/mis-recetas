@@ -11,3 +11,8 @@ services:
         class: My\RecipesBundle\Form\Type\DifficultyType
         tags:
             - { name: form.type, alias: difficulty }
+
+    my_recipes.form.type.author:
+        class: My\RecipesBundle\Form\Type\AuthorType
+        tags:
+            - { name: form.type, alias: author }

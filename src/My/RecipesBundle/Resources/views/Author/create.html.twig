@@ -1,3 +1,4 @@
+{# src/My/RecipesBundle/Resources/views/Author/create.html.twig #}
 {% extends '::base.html.twig' %}
 
 {% block title %}Create author{% endblock %}
@@ -17,7 +18,7 @@
             {{ form_widget(form.surname) }}
         </li>
         <li>
-            {{ form_widget(form.save) }}
+            <input type="submit" value="Add author" />
         </li>
     </ul>
     {{ form_end(form) }}
