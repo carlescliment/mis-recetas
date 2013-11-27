@@ -183,27 +183,4 @@ class Recipe
     {
         $this->ingredients->removeElement($ingredients);
     }
-
-    /**
-     * Set notes
-     *
-     * @param string $notes
-     * @return Recipe
-     */
-    public function setNotes($notes)
-    {
-        $this->notes = $notes;
-    
-        return $this;
-    }
-
-    /**
-     * Get notes
-     *
-     * @return string 
-     */
-    public function getNotes()
-    {
-        return $this->notes;
-    }
 }

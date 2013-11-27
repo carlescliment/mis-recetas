@@ -1,0 +1,27 @@
+{{ form_start(form, {'attr' : { 'id' : 'recipe-form'}}) }}
+{{ form_errors(form) }}
+<ul>
+    <li>
+        {{ form_label(form.name) }}: 
+        {{ form_errors(form.name) }}
+        {{ form_widget(form.name) }}
+    </li>
+    <li>
+        {{ form_label(form.difficulty) }}: 
+        {{ form_errors(form.difficulty) }}
+        {{ form_widget(form.difficulty) }}
+    </li>
+    {% if form.notes is defined %}
+        <li>
+            {{ form_label(form.notes) }}: 
+            {{ form_errors(form.notes) }}
+            {{ form_widget(form.notes) }}
+        </li>
+    {% endif %}
+    <li>
+        {{ form_label(form.author) }}: 
+        {{ form_errors(form.author) }}
+        {{ form_widget(form.author) }}
+    </li>
+</ul>
+{{ form_end(form) }}

@@ -1,0 +1,9 @@
+{# src/My/RecipesBundle/Resources/views/Recipe/edit.html.twig #}
+
+{% extends '::base.html.twig' %}
+
+{% block title %}Edit {{ recipe.name }}{% endblock %}
+
+{% block body %}
+    {% include('MyRecipesBundle:Recipe:_form.html.twig') %}
+{% endblock %}

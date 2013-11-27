@@ -38,5 +38,7 @@ My\RecipesBundle\Entity\Recipe:
             length: 40
         description:
             type: text
+        notes:
+            type: text
         published:
             type: datetime

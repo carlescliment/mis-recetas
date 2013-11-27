@@ -1,5 +1,5 @@
 <?php
-
+// src/My/RecipesBundle/Controller/RecipeController.php
 namespace My\RecipesBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -21,6 +21,23 @@ class RecipeController extends Controller
     public function showAction(Recipe $recipe)
     {
         return array('recipe' => $recipe);
+    }
+
+    /**
+     * @Template()
+     */
+    public function editAction(Recipe $recipe, Request $request)
+    {
+        $form = $this->createForm(new RecipeType, $recipe);
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+            return $this->redirect($this->generateUrl('my_recipes_recipe_show', array('id' => $recipe->getId())));
+        }
+        return array(
+            'form' => $form->createView(),
+            'recipe' => $recipe);
     }
 
     /**

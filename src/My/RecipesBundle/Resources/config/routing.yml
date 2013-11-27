@@ -1,3 +1,4 @@
+# src/My/RecipesBundle/Resources/config/routing.yml
 my_recipes_recipe_create:
     pattern:  /recipes/create
     defaults: { _controller: MyRecipesBundle:Recipe:create }
@@ -5,6 +6,10 @@ my_recipes_recipe_create:
 my_recipes_recipe_show:
     pattern:  /recipes/{id}
     defaults: { _controller: MyRecipesBundle:Recipe:show }
+
+my_recipes_recipe_edit:
+    pattern:  /recipes/{id}/edit
+    defaults: { _controller: MyRecipesBundle:Recipe:edit }
 
 my_recipes_author_create:
     pattern:  /authors/create
