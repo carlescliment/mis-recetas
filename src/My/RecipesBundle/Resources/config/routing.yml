@@ -22,3 +22,15 @@ my_recipes_author_show:
 top_chefs:
     pattern:  /top-chefs
     defaults: { _controller: MyRecipesBundle:Recipe:topChefs }
+
+my_recipes_index:
+    pattern: /
+    defaults:
+        _controller: FrameworkBundle:Template:template
+        template: 'MyRecipesBundle:Common:index.html.twig'
+
+my_recipes_secured:
+    pattern: /secured
+    defaults:
+        _controller: FrameworkBundle:Template:template
+        template: 'MyRecipesBundle:Common:secured.html.twig'
