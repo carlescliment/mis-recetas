@@ -1,4 +1,14 @@
+# app/config/routing.yml
 my_recipes:
     resource: "@MyRecipesBundle/Resources/config/routing.yml"
     prefix:   /
 
+login:
+    path:   /login
+    defaults:  { _controller: MyRecipesBundle:Security:login }
+
+login_check:
+    path:   /login_check 
+
+logout:
+    path:   /logout
