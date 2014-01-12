@@ -1,3 +1,7 @@
+my_user:
+    resource: "@MyUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
 # app/config/routing.yml
 my_recipes:
     resource: "@MyRecipesBundle/Resources/config/routing.yml"
